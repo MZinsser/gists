@@ -1,3 +1,12 @@
+:neo4j-version: 3.5.17
+:author: Marlee Zinsser
+
+
+//hide
+//setup
+
+= Relating Diseases, Drugs, and MESH ID's through PubMed Annotations
+[source, cypher]
 
 UNWIND [{MESH:"MESH:C000592938", properties:{}}, {MESH:"MESH:D016638", properties:{}}, {MESH:"MESH:C049379", properties:{}}, {MESH:"MESH:D000787", properties:{}}, {MESH:"MESH:D010100", properties:{}}, {MESH:"MESH:D002869", properties:{}}, {MESH:"MESH:D019344", properties:{}}, {MESH:"MESH:D004370", properties:{}}, {MESH:"MESH:D000809", properties:{}}, {MESH:"MESH:D002118", properties:{}}, {MESH:"MESH:D002114", properties:{}}, {MESH:"MESH:D002784", properties:{}}, {MESH:"MESH:D002318", properties:{}}, {MESH:"MESH:D010710", properties:{}}, {MESH:"MESH:D005231", properties:{}}, {MESH:"MESH:D005682", properties:{}}, {MESH:"MESH:D015525", properties:{}}, {MESH:"MESH:D013256", properties:{}}, {MESH:"MESH:D009584", properties:{}}, {MESH:"MESH:D018943", properties:{}}] AS row
 CREATE (n:MESH{MESH: row.MESH}) SET n += row.properties;
